@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>AirTravel</title>
 </head>
 
@@ -21,14 +21,15 @@
         </header>
     </div>
 
+
     <div class="container">
         <div class="row">
             <div class="col-6">
                 <div class="card">
                     <h2>PARTENZE</h2>
-                    <table class="table">
+                    <table class="table table-hover table-borderless">
                         <thead>
-                          <tr>
+                          <tr class="text-center">
                             <th scope="col">Compagnia</th>
                             <th scope="col">Volo</th>
                             <th scope="col">Destinazione</th>
@@ -39,12 +40,13 @@
                         </thead>
                         <tbody>
                             @foreach ($flights['departure'] as $destinazione)
-                                <tr>
+                                <tr class="table-light text-center">
                                     <td>{{$destinazione['company']}}</td>
                                     <td>{{$destinazione['id']}}</td>
                                     <td>{{$destinazione['city']}}</td>
                                     <td>{{$destinazione['time']}}</td>
                                     <td>{{$destinazione['gate']}}</td>
+                                    <td><a href="{{route('destinazioni', ['id' => $destinazione['id']])}}"><i class="bi bi-info-circle-fill text-primary"></i></a></td>
                                 </tr>
                             @endforeach
                         </tbody>
